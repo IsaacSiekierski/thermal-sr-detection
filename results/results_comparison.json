@@ -1,0 +1,531 @@
+{
+ "config": {
+  "scale": 4,
+  "embed_dim": 128,
+  "num_lisb": 8,
+  "border": 4,
+  "seed": 123,
+  "difiisr_n": 300,
+  "resource_bench_n": 50,
+  "lpips_net": "alex",
+  "conf_pred": 0.001,
+  "conf_f1": 0.25,
+  "iou_f1": 0.5,
+  "n_boot": 1000,
+  "yolo_classes": [
+   0,
+   1,
+   2,
+   16
+  ],
+  "class_names": [
+   "person",
+   "bicycle",
+   "car",
+   "dog"
+  ]
+ },
+ "cfg_hash": "97b7c337",
+ "gates": {
+  "G2_data": {
+   "n_test": 1366,
+   "n_sub300": 300,
+   "hr_eq_lr": true
+  },
+  "G1_provenance": {
+   "ours": "lisn_best.pth",
+   "ours_ok": true,
+   "span": {
+    "file": "spanx4_ch48.pth",
+    "scale": 4,
+    "feature_channels": 48,
+    "params": 2236728
+   }
+  },
+  "G3_fidelity": false,
+  "G4_ordering": true,
+  "G5_gap25": false,
+  "G5_dissociation_DifIISR": false
+ },
+ "table_L": [
+  {
+   "model": "LISN",
+   "venue": "ICIC 2024 (arXiv:2405.10561)",
+   "dataset": "CVC-09-1K",
+   "scale": "x4",
+   "params_K": 279,
+   "PSNR_dB": 39.7,
+   "SSIM": 0.9317,
+   "notes": "6000 epochs; no public weights; repo code builds Swin-style SRB, not LISB",
+   "comparable_to_TableE": "No (different data/protocol)"
+  },
+  {
+   "model": "SwinIR",
+   "venue": "ICCVW 2021",
+   "dataset": "CVC-09-1K (as reported in LISN paper)",
+   "scale": "x4",
+   "params_K": 897,
+   "PSNR_dB": 39.58,
+   "SSIM": 0.9309,
+   "notes": "heavyweight baseline in LISN Table 1",
+   "comparable_to_TableE": "No (different data/protocol)"
+  },
+  {
+   "model": "SPAN",
+   "venue": "CVPRW/NTIRE 2024",
+   "dataset": "DIV2K_LSDIR test",
+   "scale": "x4",
+   "params_K": "NTIRE-tier",
+   "PSNR_dB": 27.09,
+   "SSIM": NaN,
+   "notes": "1st place NTIRE-2024 ESR (overall + runtime); RGB natural images",
+   "comparable_to_TableE": "No (different data/protocol)"
+  },
+  {
+   "model": "DifIISR",
+   "venue": "CVPR 2025",
+   "dataset": "authors' IR benchmarks",
+   "scale": "x4",
+   "params_K": "diffusion",
+   "PSNR_dB": NaN,
+   "SSIM": NaN,
+   "notes": "task-oriented (detection/segmentation guidance); perceptual metrics emphasized",
+   "comparable_to_TableE": "No (different data/protocol)"
+  },
+  {
+   "model": "LISB-SR-128/8 (ours)",
+   "venue": "this project",
+   "dataset": "FLIR ADAS 1.3 test (1,366)",
+   "scale": "x4",
+   "params_K": 659,
+   "PSNR_dB": 28.6,
+   "SSIM": 0.7068,
+   "notes": "300/6000-epoch budget; +0.60 dB over 28.00 dB bicubic floor",
+   "comparable_to_TableE": "measured — see Table E"
+  }
+ ],
+ "resources": [
+  {
+   "tag": "SWINIR",
+   "cpu_mean_%": 65.5,
+   "cpu_max_%": 87.8,
+   "ram_max_GB": 2.47750656,
+   "gpu_mean_%": 92.42857142857143,
+   "gpu_max_%": 94.0,
+   "gpu_mem_max_GB": 0.843251712,
+   "torch_peak_GB": 0.240045056
+  },
+  {
+   "tag": "SPAN",
+   "cpu_mean_%": 52.849999999999994,
+   "cpu_max_%": 55.3,
+   "ram_max_GB": 2.47742464,
+   "gpu_mean_%": 48.75,
+   "gpu_max_%": 69.0,
+   "gpu_mem_max_GB": 0.843251712,
+   "torch_peak_GB": 0.108760064
+  }
+ ],
+ "best_worst": {
+  "SWINIR": {
+   "best_gain": [
+    "FLIR_09911",
+    "FLIR_09910",
+    "FLIR_09055"
+   ],
+   "worst_gain": [
+    "FLIR_10153",
+    "FLIR_09947",
+    "FLIR_10166"
+   ],
+   "best_psnr": [
+    "FLIR_09167",
+    "FLIR_09091",
+    "FLIR_09194"
+   ],
+   "worst_psnr": [
+    "FLIR_09046",
+    "FLIR_09047",
+    "FLIR_09913"
+   ],
+   "best_ssim": [
+    "FLIR_09464",
+    "FLIR_09574",
+    "FLIR_09465"
+   ],
+   "worst_ssim": [
+    "FLIR_09047",
+    "FLIR_09861",
+    "FLIR_09726"
+   ],
+   "best_lpips": [
+    "FLIR_09215",
+    "FLIR_09046",
+    "FLIR_09052"
+   ],
+   "worst_lpips": [
+    "FLIR_09418",
+    "FLIR_09445",
+    "FLIR_09446"
+   ]
+  },
+  "SPAN": {
+   "best_gain": [
+    "FLIR_10011",
+    "FLIR_09831",
+    "FLIR_09822"
+   ],
+   "worst_gain": [
+    "FLIR_09175",
+    "FLIR_09183",
+    "FLIR_09188"
+   ],
+   "best_psnr": [
+    "FLIR_09194",
+    "FLIR_09167",
+    "FLIR_09169"
+   ],
+   "worst_psnr": [
+    "FLIR_09047",
+    "FLIR_09922",
+    "FLIR_09046"
+   ],
+   "best_ssim": [
+    "FLIR_09128",
+    "FLIR_09073",
+    "FLIR_09127"
+   ],
+   "worst_ssim": [
+    "FLIR_09047",
+    "FLIR_09861",
+    "FLIR_09873"
+   ],
+   "best_lpips": [
+    "FLIR_09861",
+    "FLIR_09873",
+    "FLIR_09019"
+   ],
+   "worst_lpips": [
+    "FLIR_09525",
+    "FLIR_09641",
+    "FLIR_09243"
+   ]
+  },
+  "DIFIISR": {
+   "best_gain": [
+    "FLIR_09551",
+    "FLIR_09085",
+    "FLIR_09824"
+   ],
+   "worst_gain": [
+    "FLIR_09044",
+    "FLIR_09921",
+    "FLIR_09913"
+   ],
+   "best_psnr": [
+    "FLIR_09189",
+    "FLIR_09085",
+    "FLIR_09198"
+   ],
+   "worst_psnr": [
+    "FLIR_09880",
+    "FLIR_09964",
+    "FLIR_09879"
+   ],
+   "best_ssim": [
+    "FLIR_08968",
+    "FLIR_09446",
+    "FLIR_08970"
+   ],
+   "worst_ssim": [
+    "FLIR_09739",
+    "FLIR_09964",
+    "FLIR_09724"
+   ],
+   "best_lpips": [
+    "FLIR_09724",
+    "FLIR_09027",
+    "FLIR_09023"
+   ],
+   "worst_lpips": [
+    "FLIR_09658",
+    "FLIR_09332",
+    "FLIR_08962"
+   ]
+  }
+ },
+ "gt_mode": "flir",
+ "detection": {
+  "full": {
+   "LRN": {
+    "mAP": 0.071751142375195,
+    "per_class": {
+     "person": 0.13408335070171262,
+     "bicycle": 0.03029928470903521,
+     "car": 0.0963312331770892,
+     "dog": 0.026290700912942996
+    },
+    "F1": 0.18609220250846162,
+    "F1_lo": 0.17547688557517616,
+    "F1_hi": 0.19806207253981117
+   },
+   "BIC": {
+    "mAP": 0.07610492974407904,
+    "per_class": {
+     "person": 0.1466459073502768,
+     "bicycle": 0.03680663060312332,
+     "car": 0.10976422022326428,
+     "dog": 0.011202960799651735
+    },
+    "F1": 0.2192100528852067,
+    "F1_lo": 0.20798025100189674,
+    "F1_hi": 0.23050538813047142
+   },
+   "SWINIR": {
+    "mAP": 0.10684804568012311,
+    "per_class": {
+     "person": 0.17412614611096353,
+     "bicycle": 0.036225658247577154,
+     "car": 0.17911197013651392,
+     "dog": 0.037928408225437936
+    },
+    "F1": 0.3217084727966003,
+    "F1_lo": 0.31001927506510196,
+    "F1_hi": 0.3328058020725213
+   },
+   "SPAN": {
+    "mAP": 0.07267850852627092,
+    "per_class": {
+     "person": 0.133191657915774,
+     "bicycle": 0.029354345003678613,
+     "car": 0.12471857539510425,
+     "dog": 0.003449455790526788
+    },
+    "F1": 0.23715429326609355,
+    "F1_lo": 0.2246017768380576,
+    "F1_hi": 0.24914848634945447
+   },
+   "HR": {
+    "mAP": 0.22588376192055992,
+    "per_class": {
+     "person": 0.35884937306925746,
+     "bicycle": 0.11790755041232732,
+     "car": 0.3991883585351251,
+     "dog": 0.027589765665529762
+    },
+    "F1": 0.6391320019255927,
+    "F1_lo": 0.6290643163632983,
+    "F1_hi": 0.6492946825248296
+   }
+  },
+  "sub300": {
+   "LRN": {
+    "mAP": 0.08764254450002616,
+    "per_class": {
+     "person": 0.12259889398826587,
+     "bicycle": 0.05901180427160993,
+     "car": 0.09459204299655447,
+     "dog": 0.07436743674367437
+    },
+    "F1": 0.1712331703863249,
+    "F1_lo": 0.1469653393143159,
+    "F1_hi": 0.19344028055176302
+   },
+   "BIC": {
+    "mAP": 0.0916075008421166,
+    "per_class": {
+     "person": 0.1394252677183728,
+     "bicycle": 0.07156118106321656,
+     "car": 0.1087031437036834,
+     "dog": 0.046740410883193584
+    },
+    "F1": 0.2060295442148871,
+    "F1_lo": 0.18026583559644338,
+    "F1_hi": 0.2310552854123592
+   },
+   "SWINIR": {
+    "mAP": 0.12706666451506277,
+    "per_class": {
+     "person": 0.165037290389341,
+     "bicycle": 0.06027458481366171,
+     "car": 0.17859834721368403,
+     "dog": 0.10435643564356435
+    },
+    "F1": 0.3176714143537018,
+    "F1_lo": 0.2915770721881413,
+    "F1_hi": 0.34274618720407724
+   },
+   "SPAN": {
+    "mAP": 0.07823428239204096,
+    "per_class": {
+     "person": 0.12585423249036265,
+     "bicycle": 0.049153699264085284,
+     "car": 0.11689087480333264,
+     "dog": 0.021038323010383227
+    },
+    "F1": 0.22085757229185873,
+    "F1_lo": 0.19279602682866553,
+    "F1_hi": 0.2505080390796351
+   },
+   "HR": {
+    "mAP": 0.2422863774880013,
+    "per_class": {
+     "person": 0.35441986291246974,
+     "bicycle": 0.156443310864709,
+     "car": 0.3960051084520541,
+     "dog": 0.06227722772277228
+    },
+    "F1": 0.6380238815566939,
+    "F1_lo": 0.6182211406640017,
+    "F1_hi": 0.6569588937300107
+   },
+   "DIFIISR": {
+    "mAP": 0.07148247748502758,
+    "per_class": {
+     "person": 0.11349383683379427,
+     "bicycle": 0.06428143240629103,
+     "car": 0.108154640700025,
+     "dog": 0.0
+    },
+    "F1": 0.25118162336701655,
+    "F1_lo": 0.22778697334922499,
+    "F1_hi": 0.27632245169878467
+   }
+  }
+ },
+ "table_E_full": [
+  {
+   "source": "LRN",
+   "mAP": 0.0718,
+   "F1": 0.1861,
+   "F1_CI": "[0.175,0.198]",
+   "ms_img": NaN,
+   "params_K": NaN,
+   "PSNR": NaN,
+   "SSIM": NaN,
+   "LPIPS": NaN
+  },
+  {
+   "source": "BIC",
+   "mAP": 0.0761,
+   "F1": 0.2192,
+   "F1_CI": "[0.208,0.231]",
+   "ms_img": NaN,
+   "params_K": NaN,
+   "PSNR": 28.0027,
+   "SSIM": 0.6866,
+   "LPIPS": 0.5323
+  },
+  {
+   "source": "SWINIR",
+   "mAP": 0.1068,
+   "F1": 0.3217,
+   "F1_CI": "[0.310,0.333]",
+   "ms_img": 36.6785,
+   "params_K": 658.576,
+   "PSNR": 28.6042,
+   "SSIM": 0.7069,
+   "LPIPS": 0.2594
+  },
+  {
+   "source": "SPAN",
+   "mAP": 0.0727,
+   "F1": 0.2372,
+   "F1_CI": "[0.225,0.249]",
+   "ms_img": 16.3422,
+   "params_K": 2236.728,
+   "PSNR": 24.9965,
+   "SSIM": 0.6254,
+   "LPIPS": 0.4996
+  },
+  {
+   "source": "HR",
+   "mAP": 0.2259,
+   "F1": 0.6391,
+   "F1_CI": "[0.629,0.649]",
+   "ms_img": NaN,
+   "params_K": NaN,
+   "PSNR": NaN,
+   "SSIM": NaN,
+   "LPIPS": NaN
+  }
+ ],
+ "table_E_300": [
+  {
+   "source": "LRN",
+   "mAP": 0.0876,
+   "F1": 0.1712,
+   "F1_CI": "[0.147,0.193]",
+   "ms_img": NaN,
+   "params_K": NaN,
+   "PSNR": NaN,
+   "SSIM": NaN,
+   "LPIPS": NaN
+  },
+  {
+   "source": "BIC",
+   "mAP": 0.0916,
+   "F1": 0.206,
+   "F1_CI": "[0.180,0.231]",
+   "ms_img": NaN,
+   "params_K": NaN,
+   "PSNR": 28.0844,
+   "SSIM": 0.6872,
+   "LPIPS": 0.5339
+  },
+  {
+   "source": "SWINIR",
+   "mAP": 0.1271,
+   "F1": 0.3177,
+   "F1_CI": "[0.292,0.343]",
+   "ms_img": 36.6785,
+   "params_K": 658.576,
+   "PSNR": 28.6949,
+   "SSIM": 0.7075,
+   "LPIPS": 0.2603
+  },
+  {
+   "source": "SPAN",
+   "mAP": 0.0782,
+   "F1": 0.2209,
+   "F1_CI": "[0.193,0.251]",
+   "ms_img": 16.3422,
+   "params_K": 2236.728,
+   "PSNR": 25.0788,
+   "SSIM": 0.6263,
+   "LPIPS": 0.5033
+  },
+  {
+   "source": "HR",
+   "mAP": 0.2423,
+   "F1": 0.638,
+   "F1_CI": "[0.618,0.657]",
+   "ms_img": NaN,
+   "params_K": NaN,
+   "PSNR": NaN,
+   "SSIM": NaN,
+   "LPIPS": NaN
+  },
+  {
+   "source": "DIFIISR",
+   "mAP": 0.0715,
+   "F1": 0.2512,
+   "F1_CI": "[0.228,0.276]",
+   "ms_img": 682.1412,
+   "params_K": NaN,
+   "PSNR": 25.8412,
+   "SSIM": 0.5837,
+   "LPIPS": 0.3127
+  }
+ ],
+ "gap_closure_pct": {
+  "SWINIR": 23.53293588785543,
+  "SPAN": -8.875310633454855,
+  "DIFIISR": -13.356233913810723
+ },
+ "timing_ms": {
+  "SWINIR": 36.67847199994867,
+  "SPAN": 16.34218700019119,
+  "DIFIISR": 682.1412189000512
+ }
+}

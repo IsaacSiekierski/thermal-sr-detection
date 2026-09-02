@@ -1,0 +1,343 @@
+{
+  "config": {
+    "scale": 4,
+    "embed_dim": 128,
+    "num_lisb": 8,
+    "seed": 123,
+    "metric_border": 4,
+    "yolo_weights": "yolov8n.pt",
+    "yolo_imgsz": 640,
+    "conf_pred": 0.001,
+    "conf_legacy": 0.25,
+    "iou_match": 0.5,
+    "yolo_classes": {
+      "0": "person",
+      "1": "bicycle",
+      "2": "car",
+      "16": "dog"
+    },
+    "n_boot": 1000,
+    "n_ckpt_curve_imgs": 100,
+    "n_debug": 24
+  },
+  "config_hash": "c1e40569",
+  "debug_mode": false,
+  "env": {
+    "torch": "2.11.0+cu128",
+    "gpu": "Tesla T4"
+  },
+  "gate": {
+    "G1_provenance": true,
+    "G2_data_integrity": true,
+    "G3_sr_quality": false,
+    "G4_ordering": true,
+    "G5_gap_closed": false,
+    "G6_coverage": true
+  },
+  "provenance": {
+    "table": [
+      {
+        "file": "lisn_best.pth",
+        "epoch": 295,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      },
+      {
+        "file": "lisn_epoch_0020.pth",
+        "epoch": 20,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      },
+      {
+        "file": "lisn_epoch_0040.pth",
+        "epoch": 40,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      },
+      {
+        "file": "lisn_epoch_0060.pth",
+        "epoch": 60,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      },
+      {
+        "file": "lisn_epoch_0080.pth",
+        "epoch": 80,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      },
+      {
+        "file": "lisn_epoch_0100.pth",
+        "epoch": 100,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      },
+      {
+        "file": "lisn_epoch_0120.pth",
+        "epoch": 120,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      },
+      {
+        "file": "lisn_epoch_0140.pth",
+        "epoch": 140,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      },
+      {
+        "file": "lisn_epoch_0160.pth",
+        "epoch": 160,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      },
+      {
+        "file": "lisn_epoch_0180.pth",
+        "epoch": 180,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      },
+      {
+        "file": "lisn_epoch_0200.pth",
+        "epoch": 200,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      },
+      {
+        "file": "lisn_epoch_0220.pth",
+        "epoch": 220,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      },
+      {
+        "file": "lisn_epoch_0240.pth",
+        "epoch": 240,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      },
+      {
+        "file": "lisn_epoch_0260.pth",
+        "epoch": 260,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      },
+      {
+        "file": "lisn_epoch_0280.pth",
+        "epoch": 280,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      },
+      {
+        "file": "lisn_epoch_0300.pth",
+        "epoch": 300,
+        "embed_dim": 128,
+        "num_lisb": 8,
+        "scale": 4,
+        "params": 658576,
+        "matches_CONFIG": true
+      }
+    ],
+    "best_ckpt": "lisn_best.pth",
+    "n_matching": 16,
+    "n_foreign": 0
+  },
+  "data": {
+    "n_manifest": 1366,
+    "n_test_used": 1366,
+    "n_train": 8862,
+    "regenerated": 0,
+    "unreadable": 0,
+    "leakage_overlap": 0
+  },
+  "sr_metrics": {
+    "n_images": 1366,
+    "psnr_bicubic": 28.00270354555111,
+    "ssim_bicubic": 0.6865539149930054,
+    "psnr_lisn": 28.599100483327557,
+    "ssim_lisn": 0.7068255599196832,
+    "delta_psnr": 0.5963969377764471,
+    "delta_ssim": 0.020271644926677768,
+    "avg_ms": 38.774948692601036,
+    "params": 658576
+  },
+  "ckpt_curve": [
+    {
+      "epoch": 20,
+      "psnr": 28.433974563984435
+    },
+    {
+      "epoch": 60,
+      "psnr": 28.4786475336214
+    },
+    {
+      "epoch": 100,
+      "psnr": 28.46557096639804
+    },
+    {
+      "epoch": 140,
+      "psnr": 28.44093687415883
+    },
+    {
+      "epoch": 180,
+      "psnr": 28.56220041897474
+    },
+    {
+      "epoch": 220,
+      "psnr": 28.563834242992108
+    },
+    {
+      "epoch": 260,
+      "psnr": 28.487040918129573
+    },
+    {
+      "epoch": 300,
+      "psnr": 28.522048130497907
+    }
+  ],
+  "detection": {
+    "gt_available": true,
+    "protocol": "COCOeval mAP@[.5:.95] + bootstrap F1",
+    "map": {
+      "lr_native": 0.071751142375195,
+      "bicubic": 0.07610492974407904,
+      "sr": 0.10584116689147838,
+      "hr": 0.22588376192055992
+    },
+    "per_class": {
+      "lr_native": {
+        "person": 0.13408335070171262,
+        "bicycle": 0.03029928470903521,
+        "car": 0.0963312331770892,
+        "dog": 0.026290700912942996
+      },
+      "bicubic": {
+        "person": 0.1466459073502768,
+        "bicycle": 0.03680663060312332,
+        "car": 0.10976422022326428,
+        "dog": 0.011202960799651735
+      },
+      "sr": {
+        "person": 0.17362053256292898,
+        "bicycle": 0.036034512660543166,
+        "car": 0.17855349134472623,
+        "dog": 0.03515613099771516
+      },
+      "hr": {
+        "person": 0.35884937306925746,
+        "bicycle": 0.11790755041232732,
+        "car": 0.3991883585351251,
+        "dog": 0.027589765665529762
+      }
+    },
+    "f1": {
+      "lr_native": {
+        "precision": 0.7884984025559105,
+        "recall": 0.1055061559507524,
+        "f1": 0.18610964482316567,
+        "ci95": [
+          0.17521983947489297,
+          0.19745680428104762
+        ],
+        "tp": 1234,
+        "fp": 331,
+        "fn": 10462
+      },
+      "bicubic": {
+        "precision": 0.7738095238095238,
+        "recall": 0.12782147742818056,
+        "f1": 0.2194012327560904,
+        "ci95": [
+          0.20847239043563995,
+          0.23112017023556225
+        ],
+        "tp": 1495,
+        "fp": 437,
+        "fn": 10201
+      },
+      "sr": {
+        "precision": 0.7650834403080873,
+        "recall": 0.20383036935704515,
+        "f1": 0.32190116122063195,
+        "ci95": [
+          0.3113706163761188,
+          0.33430829795010575
+        ],
+        "tp": 2384,
+        "fp": 732,
+        "fn": 9312
+      },
+      "hr": {
+        "precision": 0.8123928806855636,
+        "recall": 0.5268467852257182,
+        "f1": 0.6391784658472071,
+        "ci95": [
+          0.6293830528272896,
+          0.6484005104570729
+        ],
+        "tp": 6162,
+        "fp": 1423,
+        "fn": 5534
+      }
+    },
+    "gap_closed_pct": 19.853431032471818,
+    "legacy_counts": {
+      "lr_native": 1.1456808199121522,
+      "bicubic": 1.4143484626647145,
+      "sr": 2.281112737920937,
+      "hr": 5.552708638360175
+    },
+    "count_inflation": {
+      "tp_gain": 1150,
+      "fp_gain": 401
+    }
+  },
+  "error_analysis_stems": [
+    "FLIR_10153",
+    "FLIR_09947"
+  ],
+  "timestamp": "2026-08-02 10:48:58"
+}
