@@ -58,7 +58,7 @@ notebooks/01_train_lisb_sr.ipynb              training run (Colab)
 notebooks/02_model_comparison.ipynb        MAIN: full evaluation and comparison
 notebooks/03_train_thermal_detector.ipynb  control detector training
 
-checkpoints/lisb_sr_128x8_best.pth         trained SR model, 658,576 params
+checkpoints/lisn_best.pth                      trained SR model, 658,576 params
 checkpoints/yolov8n_flir_thermal.pt        control detector
 
 results/results_comparison.json            detection and fidelity metrics, gates, tables
@@ -165,6 +165,21 @@ under study.
 Liu, S., Yan, K., Qin, F., Wang, C., Ge, R., Zhang, K., Huang, J., Peng, Y., Cao, J.
 *Infrared Image Super-Resolution via Lightweight Information Split Network.* ICIC 2024.
 arXiv:2405.10561
+
+## A note on file names
+
+The checkpoint is `checkpoints/lisn_best.pth` and the state_dict keys are prefixed
+`sfe`, `dfe.*`, `dff_*`, `iir_conv`. These names date from the start of the project,
+when the working title followed the paper's name. They are kept unchanged because the
+notebooks load the file by that path and `load_state_dict` is called in strict mode:
+renaming either the file or the keys would break reproduction for no benefit. The model
+itself is LISB-SR-128/8 (see below).
+
+The periodic training checkpoints (`lisn_epoch_0020.pth` … `lisn_epoch_0300.pth`) are
+**not** included here — 15 files of 8 MB each. They are only needed by the convergence
+sweep cell of `notebooks/02_model_comparison.ipynb`; every other cell runs from
+`lisn_best.pth`. The sweep results are reproduced in `results/results.json`
+(`ckpt_curve` and the provenance table).
 
 ## Model naming
 
